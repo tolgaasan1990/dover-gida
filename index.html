@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Döver Gıda — Toptan Gıda Tedarikçiniz</title>
+  <link rel="icon" type="image/png" href="brand_assets/logo.png">
+  <link rel="apple-touch-icon" href="brand_assets/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fdf8f0',
+              100: '#f9edda',
+              200: '#f2d7b0',
+              300: '#e9bb7d',
+              400: '#df9a48',
+              500: '#d4802a',
+              600: '#c46820',
+              700: '#a34f1c',
+              800: '#84401e',
+              900: '#6c361b',
+            },
+            forest: {
+              50: '#f0f7f1',
+              100: '#dceede',
+              200: '#bcddbf',
+              300: '#8fc496',
+              400: '#5ea56a',
+              500: '#3d8a4b',
+              600: '#2c6e39',
+              700: '#24582f',
+              800: '#1f4728',
+              900: '#1a3b22',
+            },
+            earth: {
+              50: '#faf7f2',
+              100: '#f0e8d8',
+              200: '#e2d1b0',
+              300: '#d0b380',
+              400: '#bf9557',
+              500: '#b07f3e',
+              600: '#9a6633',
+              700: '#7d4e2c',
+              800: '#674029',
+              900: '#563625',
+            },
+            dark: {
+              900: '#1a1714',
+              800: '#2a2520',
+              700: '#3a342e',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: #1a1714; color: #f0e8d8; overflow-x: hidden; }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1a1714; }
+    ::-webkit-scrollbar-thumb { background: #3d8a4b; border-radius: 4px; }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-60px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(60px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .animate-on-scroll.visible.delay-1 { transition-delay: 0.1s; }
+    .animate-on-scroll.visible.delay-2 { transition-delay: 0.2s; }
+    .animate-on-scroll.visible.delay-3 { transition-delay: 0.3s; }
+    .animate-on-scroll.visible.delay-4 { transition-delay: 0.4s; }
+
+    /* Hero parallax layers */
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 80%, rgba(61,138,75,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(212,128,42,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 100% 80% at 50% 50%, rgba(26,23,20,1) 0%, rgba(26,23,20,0.95) 100%);
+    }
+
+    /* Product card hover */
+    .product-card {
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px -15px rgba(61,138,75,0.2), 0 8px 20px -8px rgba(0,0,0,0.3);
+    }
+    .product-card .card-img {
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .product-card:hover .card-img {
+      transform: scale(1.08);
+    }
+
+    /* Nav blur */
+    .nav-blur {
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+    }
+
+    /* Marquee */
+    .marquee-track {
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* CTA button shine */
+    .btn-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shine::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-shine:hover::after {
+      left: 120%;
+    }
+
+    /* Stat counter */
+    .stat-number {
+      background: linear-gradient(135deg, #5ea56a, #d4802a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Divider line */
+    .gold-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d4802a, transparent);
+    }
+
+    /* Focus visible */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid #5ea56a;
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur transition-all duration-500" style="background: rgba(26,23,20,0.6);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <img src="brand_assets/logo.png" alt="Döver Gıda Logo" class="w-12 h-12 rounded-full object-cover shadow-lg shadow-black/30 transition-transform duration-300 group-hover:scale-110 border-2 border-earth-700/30">
+          <div>
+            <span class="font-display text-xl font-bold tracking-tight text-earth-100">Döver</span>
+            <span class="font-display text-xl font-bold tracking-tight text-brand-400"> Gıda</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-10">
+          <a href="#hakkimizda" class="font-body text-sm font-medium text-earth-300 hover:text-brand-400 transition-colors duration-300 tracking-wide uppercase">Hakkımızda</a>
+          <a href="#urunler" class="font-body text-sm font-medium text-earth-300 hover:text-brand-400 transition-colors duration-300 tracking-wide uppercase">Ürünler</a>
+          <a href="#hizmetler" class="font-body text-sm font-medium text-earth-300 hover:text-brand-400 transition-colors duration-300 tracking-wide uppercase">Hizmetler</a>
+
+          <a href="#iletisim" class="btn-shine inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-forest-600 to-forest-700 text-earth-100 text-sm font-semibold rounded-lg shadow-lg shadow-forest-600/20 hover:shadow-forest-500/30 hover:from-forest-500 hover:to-forest-600 active:scale-95 transition-all duration-300">
+            İletişim
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="menuBtn" class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 group" aria-label="Menü">
+          <span class="block w-6 h-0.5 bg-earth-200 rounded transition-all duration-300 origin-center group-[.active]:rotate-45 group-[.active]:translate-y-2"></span>
+          <span class="block w-6 h-0.5 bg-earth-200 rounded transition-all duration-300 group-[.active]:opacity-0"></span>
+          <span class="block w-6 h-0.5 bg-earth-200 rounded transition-all duration-300 origin-center group-[.active]:-rotate-45 group-[.active]:-translate-y-2"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 bg-dark-900/98 border-l border-earth-800/30 p-8 pt-24 md:hidden">
+      <div class="flex flex-col gap-6">
+        <a href="#hakkimizda" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Hakkımızda</a>
+        <a href="#urunler" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Ürünler</a>
+        <a href="#hizmetler" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Hizmetler</a>
+        <a href="#neden-biz" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Neden Biz</a>
+        <div class="gold-line my-2"></div>
+        <a href="#iletisim" class="btn-shine inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-forest-600 to-forest-700 text-earth-100 font-semibold rounded-lg">
+          İletişim
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-screen flex items-center hero-bg overflow-hidden">
+    <!-- Decorative circles -->
+    <div class="absolute top-20 right-10 w-96 h-96 rounded-full bg-forest-500/5 blur-3xl"></div>
+    <div class="absolute bottom-20 left-10 w-80 h-80 rounded-full bg-brand-500/5 blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20 w-full">
+      <div class="max-w-3xl mx-auto text-center">
+
+<h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-800 leading-[0.95] tracking-[-0.03em] text-earth-100 mb-8" style="animation: fadeInUp 0.8s 0.15s cubic-bezier(0.16,1,0.3,1) both;">
+          Döver Gıda<br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-forest-400 via-forest-300 to-brand-400">Toptan Tedarik</span>
+        </h1>
+
+        <p class="font-body text-lg md:text-xl text-earth-300 leading-relaxed max-w-2xl mx-auto mb-12" style="animation: fadeInUp 0.8s 0.3s cubic-bezier(0.16,1,0.3,1) both; line-height: 1.7;">
+          Restoranlardan marketlere, otellerden catering firmalarına kadar geniş bir yelpazede toptan gıda tedariki sağlıyoruz. Kalite ve güveni bir arada sunuyoruz.
+        </p>
+
+        <div class="flex flex-wrap gap-4 justify-center" style="animation: fadeInUp 0.8s 0.45s cubic-bezier(0.16,1,0.3,1) both;">
+          <a href="#urunler" class="btn-shine inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-forest-500 to-forest-600 text-earth-50 font-semibold rounded-xl shadow-xl shadow-forest-600/25 hover:shadow-forest-500/40 hover:from-forest-400 hover:to-forest-500 active:scale-[0.97] transition-all duration-300 text-base">
+            Ürünlerimizi Keşfedin
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#iletisim" class="inline-flex items-center gap-3 px-8 py-4 border border-earth-700/50 text-earth-200 font-semibold rounded-xl hover:border-brand-500/50 hover:text-brand-300 hover:bg-brand-500/5 active:scale-[0.97] transition-all duration-300 text-base">
+            Teklif Alın
+          </a>
+        </div>
+
+        <!-- Mini info row -->
+        <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10 mt-16 pt-10 border-t border-earth-800/20" style="animation: fadeInUp 0.8s 0.6s cubic-bezier(0.16,1,0.3,1) both;">
+          <div class="flex items-center gap-2.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="font-body text-sm text-earth-400">İzmir</span>
+          </div>
+          <div class="w-px h-5 bg-earth-800/30 hidden md:block"></div>
+          <div class="flex items-center gap-2.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5a1 1 0 01-1 1h-2"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span class="font-body text-sm text-earth-400">Yakın İl ve İlçelere Teslimat</span>
+          </div>
+          <div class="w-px h-5 bg-earth-800/30 hidden md:block"></div>
+          <div class="flex items-center gap-2.5">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <span class="font-body text-sm text-earth-400">0545 479 22 19</span>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- MARQUEE STRIP -->
+  <div class="py-5 bg-dark-800 border-y border-earth-800/20 overflow-hidden">
+    <div class="flex marquee-track" style="width: max-content;">
+      <div class="flex items-center gap-12 px-6">
+        <span class="font-body text-sm text-earth-300 tracking-wider uppercase whitespace-nowrap font-semibold">Zeytin</span>
+        <span class="text-forest-500">&#9670;</span>
+        <span class="font-body text-sm text-earth-300 tracking-wider uppercase whitespace-nowrap font-semibold">Turşu</span>
+        <span class="text-forest-500">&#9670;</span>
+        <span class="font-body text-sm text-earth-300 tracking-wider uppercase whitespace-nowrap font-semibold">Piknik Grubu</span>
+        <span class="text-forest-500">&#9670;</span>
+        <span class="font-body text-sm text-earth-500 tracking-wider uppercase whitespace-nowrap">Bakliyat</span>
+        <span class="text-brand-600">&#9670;</span>
+        <span class="font-body text-sm text-earth-500 tracking-wider uppercase whitespace-nowrap">Baharat</span>
+        <span class="text-brand-600">&#9670;</span>
+        <span class="font-body text-sm text-earth-500 tracking-wider uppercase whitespace-nowrap">Bitkisel Yağlar</span>
+        <span class="text-brand-600">&#9670;</span>
+        <span class="font-body text-sm text-earth-500 tracking-wider uppercase whitespace-nowrap">Konserve</span>
+        <span class="text-brand-600">&#9670;</span>
+        <span class="font-body text-sm text-earth-500 tracking-wider uppercase whitespace-nowrap">Kahvaltılıklar</span>
+        <span class="text-brand-600">&#9670;</span>
+      </div>
+      <div class="flex items-center gap-12 px-6" aria-hidden="true">
+        <span class="font-body text-sm text-earth-300 tracking-wider uppercase whitespace-nowrap font-semibold">Zeytin</span>
+        <span class="text-forest-500">&#9670;</span>
+        <span class="font-body text-sm text-earth-300 tracking-wider uppercase whitespace-nowrap font-semibold">Turşu</span>
+        <span class="text-forest-500">&#9670;</span>
+        <span class="font-body text-sm text-earth-300 tracking-wider uppercase whitespace-nowrap font-semibold">Piknik Grubu</span>
+        <span class="text-forest-500">&#9670;</span>
+        <span class="font-body text-sm text-earth-500 tracking-wider uppercase whitespace-nowrap">Bakliyat</span>
+        <span class="text-brand-600">&#9670;</span>
+        <span class="font-body text-sm text-earth-500 tracking-wider uppercase whitespace-nowrap">Baharat</span>
+        <span class="text-brand-600">&#9670;</span>
+        <span class="font-body text-sm text-earth-500 tracking-wider uppercase whitespace-nowrap">Bitkisel Yağlar</span>
+        <span class="text-brand-600">&#9670;</span>
+        <span class="font-body text-sm text-earth-500 tracking-wider uppercase whitespace-nowrap">Konserve</span>
+        <span class="text-brand-600">&#9670;</span>
+        <span class="font-body text-sm text-earth-500 tracking-wider uppercase whitespace-nowrap">Kahvaltılıklar</span>
+        <span class="text-brand-600">&#9670;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <section id="hakkimizda" class="py-28 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800/50 to-dark-900"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Decorative Panel -->
+        <div class="animate-on-scroll">
+          <div class="relative rounded-2xl overflow-hidden aspect-[5/4] shadow-2xl shadow-black/30" style="background: linear-gradient(135deg, #24582f 0%, #1a3b22 40%, #2a2520 70%, #563625 100%);">
+            <!-- SVG pattern overlay -->
+            <svg class="absolute inset-0 w-full h-full opacity-[0.06]" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grain" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="1" fill="#f0e8d8"/><circle cx="45" cy="45" r="1" fill="#f0e8d8"/><circle cx="35" cy="10" r="0.5" fill="#f0e8d8"/><circle cx="10" cy="40" r="0.5" fill="#f0e8d8"/><circle cx="50" cy="25" r="0.8" fill="#f0e8d8"/></pattern></defs><rect width="100%" height="100%" fill="url(#grain)"/></svg>
+            <!-- Decorative elements -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center">
+                <img src="brand_assets/logo.png" alt="Döver Gıda" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-earth-100/10 shadow-2xl" style="filter: brightness(1.1);">
+                <div class="w-16 h-px bg-gradient-to-r from-transparent via-brand-400/40 to-transparent mx-auto mb-4"></div>
+                <p class="font-display text-2xl font-bold text-earth-100/80 tracking-wide">Döver Gıda</p>
+                <p class="font-body text-sm text-earth-400/60 mt-1 tracking-widest uppercase">Est. Buca / İzmir</p>
+              </div>
+            </div>
+            <!-- Corner accents -->
+            <div class="absolute top-4 left-4 w-12 h-12 border-t-2 border-l-2 border-forest-500/20 rounded-tl-lg"></div>
+            <div class="absolute bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 border-brand-500/20 rounded-br-lg"></div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div>
+          <div class="animate-on-scroll">
+            <span class="font-body text-sm font-semibold text-brand-400 tracking-widest uppercase">Hakkımızda</span>
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-earth-100 mt-3 mb-6 tracking-[-0.02em] leading-tight">
+              İzmir'in Güvenilir<br><span class="text-forest-400">Gıda Tedarikçisi</span>
+            </h2>
+          </div>
+          <div class="animate-on-scroll delay-1">
+            <p class="font-body text-earth-300 leading-[1.7] mb-6">
+              Döver Gıda olarak İzmir ve çevresinde toptan gıda tedariki alanında hizmet vermekteyiz. Özellikle zeytin, turşu ve piknik grubu ürünlerinde bölgemizin en güvenilir tedarikçilerinden biriyiz.
+            </p>
+            <p class="font-body text-earth-300 leading-[1.7] mb-10">
+              Kaliteli ürünler, uygun fiyatlar ve zamanında teslimat anlayışıyla İzmir merkez ve yakın il-ilçelere düzenli tedarik sağlıyoruz.
+            </p>
+          </div>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-6 animate-on-scroll delay-2">
+            <div class="text-center p-4 rounded-xl bg-dark-800/50 border border-earth-800/20">
+              <div class="w-10 h-10 rounded-lg bg-forest-600/15 flex items-center justify-center mx-auto mb-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <p class="font-body text-xs text-earth-400 mt-1.5 tracking-wide">İzmir</p>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-dark-800/50 border border-earth-800/20">
+              <div class="w-10 h-10 rounded-lg bg-brand-600/15 flex items-center justify-center mx-auto mb-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4802a" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5a1 1 0 01-1 1h-2"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              </div>
+              <p class="font-body text-xs text-earth-400 mt-1.5 tracking-wide">Bölgesel Teslimat</p>
+            </div>
+            <div class="text-center p-4 rounded-xl bg-dark-800/50 border border-earth-800/20">
+              <div class="w-10 h-10 rounded-lg bg-forest-600/15 flex items-center justify-center mx-auto mb-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              <p class="font-body text-xs text-earth-400 mt-1.5 tracking-wide">Kalite Güvencesi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS SECTION -->
+  <section id="urunler" class="py-28 relative">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-earth-800/30 to-transparent"></div>
+      <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-forest-500/3 rounded-full blur-3xl"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+      <!-- Section header -->
+      <div class="text-center mb-16">
+        <span class="animate-on-scroll font-body text-sm font-semibold text-brand-400 tracking-widest uppercase block">Ürün Kategorilerimiz</span>
+        <h2 class="animate-on-scroll delay-1 font-display text-4xl md:text-5xl font-bold text-earth-100 mt-3 tracking-[-0.02em]">
+          Geniş Ürün <span class="text-forest-400">Yelpazesi</span>
+        </h2>
+        <p class="animate-on-scroll delay-2 font-body text-earth-400 mt-4 max-w-xl mx-auto leading-relaxed">
+          Zeytin ve turşudan piknik grubuna, bakliyattan baharata — işletmenizin ihtiyacı olan her şeyi tek çatı altında bulabilirsiniz.
+        </p>
+      </div>
+
+      <!-- Product Grid: simple text list -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="animate-on-scroll p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-forest-600/30 transition-all duration-300 cursor-pointer group">
+          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-forest-400 transition-colors duration-300">Zeytin</h3>
+          <p class="font-body text-sm text-earth-500 mt-1">Yeşil, siyah, kırma</p>
+        </div>
+        <div class="animate-on-scroll delay-1 p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-brand-600/30 transition-all duration-300 cursor-pointer group">
+          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-brand-400 transition-colors duration-300">Turşu</h3>
+          <p class="font-body text-sm text-earth-500 mt-1">Geleneksel çeşitler</p>
+        </div>
+        <div class="animate-on-scroll delay-2 p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-brand-600/30 transition-all duration-300 cursor-pointer group">
+          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-brand-400 transition-colors duration-300">Piknik Grubu</h3>
+          <p class="font-body text-sm text-earth-500 mt-1">Reçel, peynir, paketler</p>
+        </div>
+        <div class="animate-on-scroll p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-forest-600/30 transition-all duration-300 cursor-pointer group">
+          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-forest-400 transition-colors duration-300">Bakliyat</h3>
+          <p class="font-body text-sm text-earth-500 mt-1">Mercimek, nohut, fasulye</p>
+        </div>
+        <div class="animate-on-scroll delay-1 p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-brand-600/30 transition-all duration-300 cursor-pointer group">
+          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-brand-400 transition-colors duration-300">Bitkisel Yağlar</h3>
+          <p class="font-body text-sm text-earth-500 mt-1">Zeytinyağı, ayçiçek</p>
+        </div>
+        <div class="animate-on-scroll delay-2 p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-forest-600/30 transition-all duration-300 cursor-pointer group">
+          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-forest-400 transition-colors duration-300">Baharat</h3>
+          <p class="font-body text-sm text-earth-500 mt-1">Pul biber, karabiber</p>
+        </div>
+        <div class="animate-on-scroll p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-forest-600/30 transition-all duration-300 cursor-pointer group">
+          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-forest-400 transition-colors duration-300">Konserve</h3>
+          <p class="font-body text-sm text-earth-500 mt-1">Salça, sebze, soslar</p>
+        </div>
+        <div class="animate-on-scroll delay-1 p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-brand-600/30 transition-all duration-300 cursor-pointer group">
+          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-brand-400 transition-colors duration-300">Kahvaltılık</h3>
+          <p class="font-body text-sm text-earth-500 mt-1">Bal, pekmez, peynir</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="hizmetler" class="py-28 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800/30 to-dark-900"></div>
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-earth-800/30 to-transparent"></div>
+    <div class="absolute top-1/3 right-0 w-80 h-80 bg-brand-500/4 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+      <div class="text-center mb-16">
+        <span class="animate-on-scroll font-body text-sm font-semibold text-brand-400 tracking-widest uppercase block">Hizmetlerimiz</span>
+        <h2 class="animate-on-scroll delay-1 font-display text-4xl md:text-5xl font-bold text-earth-100 mt-3 tracking-[-0.02em]">
+          Uçtan Uca <span class="text-forest-400">Tedarik Çözümleri</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Service 1 -->
+        <div class="animate-on-scroll group p-8 rounded-2xl bg-dark-800/70 border border-earth-800/30 hover:border-forest-700/40 hover:bg-dark-800/80 transition-all duration-500">
+          <div class="w-14 h-14 rounded-xl bg-forest-600/15 flex items-center justify-center mb-6 group-hover:bg-forest-600/25 transition-colors duration-300">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13" rx="2"/>
+              <path d="M16 8h4l3 3v5a1 1 0 01-1 1h-2"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-earth-100 mb-3">Hızlı Teslimat</h3>
+          <p class="font-body text-sm text-earth-400 leading-relaxed">İzmir ve yakın il-ilçelere aynı gün veya ertesi gün teslimat. Güvenli ve düzenli taşıma.</p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="animate-on-scroll delay-1 group p-8 rounded-2xl bg-dark-800/40 border border-earth-800/20 hover:border-brand-700/40 hover:bg-dark-800/60 transition-all duration-500">
+          <div class="w-14 h-14 rounded-xl bg-brand-600/15 flex items-center justify-center mb-6 group-hover:bg-brand-600/25 transition-colors duration-300">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4802a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-earth-100 mb-3">Kalite Güvencesi</h3>
+          <p class="font-body text-sm text-earth-400 leading-relaxed">ISO 22000 sertifikalı süreçlerimizle gıda güvenliği standartlarına %100 uyum sağlıyoruz.</p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="animate-on-scroll delay-2 group p-8 rounded-2xl bg-dark-800/70 border border-earth-800/30 hover:border-forest-700/40 hover:bg-dark-800/80 transition-all duration-500">
+          <div class="w-14 h-14 rounded-xl bg-forest-600/15 flex items-center justify-center mb-6 group-hover:bg-forest-600/25 transition-colors duration-300">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 7h-9"/><path d="M14 17H5"/>
+              <circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-earth-100 mb-3">Özel Fiyatlandırma</h3>
+          <p class="font-body text-sm text-earth-400 leading-relaxed">Hacminize göre esnek fiyat politikası. Düzenli müşterilerimize özel indirim ve vadeli ödeme.</p>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="animate-on-scroll delay-3 group p-8 rounded-2xl bg-dark-800/40 border border-earth-800/20 hover:border-brand-700/40 hover:bg-dark-800/60 transition-all duration-500">
+          <div class="w-14 h-14 rounded-xl bg-brand-600/15 flex items-center justify-center mb-6 group-hover:bg-brand-600/25 transition-colors duration-300">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4802a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-earth-100 mb-3">Müşteri Danışmanlığı</h3>
+          <p class="font-body text-sm text-earth-400 leading-relaxed">Uzman ekibimiz sizi dinler, ihtiyacınıza uygun ürün ve çözüm önerilerini sunar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="iletisim" class="py-28 relative">
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-earth-800/30 to-transparent"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="animate-on-scroll font-body text-sm font-semibold text-brand-400 tracking-widest uppercase block">İletişim</span>
+        <h2 class="animate-on-scroll delay-1 font-display text-4xl md:text-5xl font-bold text-earth-100 mt-3 tracking-[-0.02em]">
+          Bize <span class="text-forest-400">Ulaşın</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto">
+        <!-- Address -->
+        <a href="https://maps.google.com/?q=H%C3%BCrriyet,+Nam%C4%B1k+Kemal+Cd.+N.54,+35400+Buca+%C4%B0zmir" target="_blank" rel="noopener" class="animate-on-scroll text-center p-8 rounded-2xl bg-dark-800/40 border border-earth-800/20 hover:border-forest-700/30 transition-all duration-500 block active:scale-[0.97]">
+          <div class="w-14 h-14 rounded-xl bg-forest-600/15 flex items-center justify-center mx-auto mb-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-earth-100 mb-2">Adres</h3>
+          <p class="font-body text-sm text-earth-400 leading-relaxed">Hürriyet, Namık Kemal Cd.<br>N.54, 35400 Buca / İzmir</p>
+        </a>
+
+        <!-- Phone -->
+        <a href="tel:+905454792219" class="animate-on-scroll delay-1 text-center p-8 rounded-2xl bg-dark-800/40 border border-earth-800/20 hover:border-brand-700/30 transition-all duration-500 block active:scale-[0.97]">
+          <div class="w-14 h-14 rounded-xl bg-brand-600/15 flex items-center justify-center mx-auto mb-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d4802a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-earth-100 mb-2">Telefon</h3>
+          <p class="font-body text-sm text-earth-400 leading-relaxed">0545 479 22 19</p>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:info@dovergida.com" class="animate-on-scroll delay-2 text-center p-8 rounded-2xl bg-dark-800/40 border border-earth-800/20 hover:border-forest-700/30 transition-all duration-500 block active:scale-[0.97]">
+          <div class="w-14 h-14 rounded-xl bg-forest-600/15 flex items-center justify-center mx-auto mb-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-earth-100 mb-2">E-posta</h3>
+          <p class="font-body text-sm text-earth-400 leading-relaxed">info@dovergida.com</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="relative pt-16 pb-8">
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-earth-800/30 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-12 mb-16">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-5">
+            <img src="brand_assets/logo.png" alt="Döver Gıda Logo" class="w-12 h-12 rounded-full object-cover shadow-lg shadow-black/30 border-2 border-earth-700/30">
+            <div>
+              <span class="font-display text-xl font-bold tracking-tight text-earth-100">Döver</span>
+              <span class="font-display text-xl font-bold tracking-tight text-brand-400"> Gıda</span>
+            </div>
+          </div>
+          <p class="font-body text-sm text-earth-500 leading-relaxed max-w-sm">
+            İzmir ve çevresine kaliteli gıda ürünleri tedarik ediyoruz. Güvenilir iş ortağınız.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-display text-sm font-bold text-earth-200 mb-5 tracking-wide uppercase">Hızlı Bağlantılar</h4>
+          <ul class="space-y-3">
+            <li><a href="#hakkimizda" class="font-body text-sm text-earth-500 hover:text-brand-400 transition-colors duration-300">Hakkımızda</a></li>
+            <li><a href="#urunler" class="font-body text-sm text-earth-500 hover:text-brand-400 transition-colors duration-300">Ürünler</a></li>
+            <li><a href="#hizmetler" class="font-body text-sm text-earth-500 hover:text-brand-400 transition-colors duration-300">Hizmetler</a></li>
+            <li><a href="#iletisim" class="font-body text-sm text-earth-500 hover:text-brand-400 transition-colors duration-300">İletişim</a></li>
+          </ul>
+        </div>
+
+        <!-- Working Hours -->
+        <div>
+          <h4 class="font-display text-sm font-bold text-earth-200 mb-5 tracking-wide uppercase">Çalışma Saatleri</h4>
+          <ul class="space-y-3">
+            <li class="font-body text-sm text-earth-500">Pazartesi - Cumartesi: 08:30 - 18:00</li>
+            <li class="font-body text-sm text-earth-500">Pazar: Kapalı</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gold-line mb-8"></div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="font-body text-xs text-earth-600">&copy; 2026 Döver Gıda. Tüm hakları saklıdır.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="text-earth-600 hover:text-forest-400 transition-colors duration-300" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="text-earth-600 hover:text-forest-400 transition-colors duration-300" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" class="text-earth-600 hover:text-forest-400 transition-colors duration-300" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.style.background = 'rgba(26,23,20,0.92)';
+        navbar.style.borderBottom = '1px solid rgba(226,209,176,0.08)';
+      } else {
+        navbar.style.background = 'rgba(26,23,20,0.6)';
+        navbar.style.borderBottom = 'none';
+      }
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
