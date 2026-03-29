@@ -427,58 +427,99 @@
   </section>
 
   <!-- PRODUCTS SECTION -->
-  <section id="urunler" class="py-28 relative">
+  <section id="urunler" class="py-28 relative overflow-hidden">
     <div class="absolute inset-0">
       <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-earth-800/30 to-transparent"></div>
-      <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-forest-500/3 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/3 left-0 w-96 h-96 bg-forest-500/4 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-0 w-80 h-80 bg-brand-500/3 rounded-full blur-3xl"></div>
     </div>
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+
       <!-- Section header -->
-      <div class="text-center mb-16">
-        <span class="animate-on-scroll font-body text-sm font-semibold text-brand-400 tracking-widest uppercase block">Ürün Kategorilerimiz</span>
+      <div class="text-center mb-20">
+        <span class="animate-on-scroll font-body text-sm font-semibold text-brand-400 tracking-widest uppercase block">Ürünlerimiz</span>
         <h2 class="animate-on-scroll delay-1 font-display text-4xl md:text-5xl font-bold text-earth-100 mt-3 tracking-[-0.02em]">
           Geniş Ürün <span class="text-forest-400">Yelpazesi</span>
         </h2>
-        <p class="animate-on-scroll delay-2 font-body text-earth-400 mt-4 max-w-xl mx-auto leading-relaxed">
-          Zeytin ve turşudan piknik grubuna, bakliyattan baharata — işletmenizin ihtiyacı olan her şeyi tek çatı altında bulabilirsiniz.
-        </p>
       </div>
 
-      <!-- Product Grid: simple text list -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="animate-on-scroll p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-forest-600/30 transition-all duration-300 cursor-pointer group">
-          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-forest-400 transition-colors duration-300">Zeytin</h3>
-          <p class="font-body text-sm text-earth-500 mt-1">Yeşil, siyah, kırma</p>
-        </div>
-        <div class="animate-on-scroll delay-1 p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-brand-600/30 transition-all duration-300 cursor-pointer group">
-          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-brand-400 transition-colors duration-300">Turşu</h3>
-          <p class="font-body text-sm text-earth-500 mt-1">Geleneksel çeşitler</p>
-        </div>
-        <div class="animate-on-scroll delay-2 p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-brand-600/30 transition-all duration-300 cursor-pointer group">
-          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-brand-400 transition-colors duration-300">Piknik Grubu</h3>
-          <p class="font-body text-sm text-earth-500 mt-1">Reçel, peynir, paketler</p>
-        </div>
-        <div class="animate-on-scroll p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-forest-600/30 transition-all duration-300 cursor-pointer group">
-          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-forest-400 transition-colors duration-300">Bakliyat</h3>
-          <p class="font-body text-sm text-earth-500 mt-1">Mercimek, nohut, fasulye</p>
-        </div>
-        <div class="animate-on-scroll delay-1 p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-brand-600/30 transition-all duration-300 cursor-pointer group">
-          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-brand-400 transition-colors duration-300">Bitkisel Yağlar</h3>
-          <p class="font-body text-sm text-earth-500 mt-1">Zeytinyağı, ayçiçek</p>
-        </div>
-        <div class="animate-on-scroll delay-2 p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-forest-600/30 transition-all duration-300 cursor-pointer group">
-          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-forest-400 transition-colors duration-300">Baharat</h3>
-          <p class="font-body text-sm text-earth-500 mt-1">Pul biber, karabiber</p>
-        </div>
-        <div class="animate-on-scroll p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-forest-600/30 transition-all duration-300 cursor-pointer group">
-          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-forest-400 transition-colors duration-300">Konserve</h3>
-          <p class="font-body text-sm text-earth-500 mt-1">Salça, sebze, soslar</p>
-        </div>
-        <div class="animate-on-scroll delay-1 p-6 rounded-xl bg-dark-800/70 border border-earth-800/20 hover:border-brand-600/30 transition-all duration-300 cursor-pointer group">
-          <h3 class="font-display text-lg font-bold text-earth-100 group-hover:text-brand-400 transition-colors duration-300">Kahvaltılık</h3>
-          <p class="font-body text-sm text-earth-500 mt-1">Bal, pekmez, peynir</p>
-        </div>
+      <!-- Product Grid: all equal, with background images -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+
+        <a href="#iletisim" class="animate-on-scroll group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
+          <img src="https://images.pexels.com/photos/4109912/pexels-photo-4109912.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Zeytin" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
+          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+            <h3 class="font-display text-xl font-bold text-earth-100">Zeytin</h3>
+            <p class="font-body text-xs text-earth-300/80 mt-1">Yeşil, siyah, kırma</p>
+          </div>
+        </a>
+
+        <a href="#iletisim" class="animate-on-scroll delay-1 group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
+          <img src="https://images.pexels.com/photos/28645472/pexels-photo-28645472.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Turşu" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
+          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+            <h3 class="font-display text-xl font-bold text-earth-100">Turşu</h3>
+            <p class="font-body text-xs text-earth-300/80 mt-1">Geleneksel çeşitler</p>
+          </div>
+        </a>
+
+        <a href="#iletisim" class="animate-on-scroll delay-2 group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
+          <img src="brand_assets/piknik.png" alt="Piknik Grubu" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
+          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+            <h3 class="font-display text-xl font-bold text-earth-100">Piknik Grubu</h3>
+            <p class="font-body text-xs text-earth-300/80 mt-1">Reçel, peynir, paketler</p>
+          </div>
+        </a>
+
+        <a href="#iletisim" class="animate-on-scroll group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
+          <img src="brand_assets/bakliyat.png" alt="Bakliyat" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
+          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+            <h3 class="font-display text-xl font-bold text-earth-100">Bakliyat</h3>
+            <p class="font-body text-xs text-earth-300/80 mt-1">Mercimek, nohut, fasulye</p>
+          </div>
+        </a>
+
+        <a href="#iletisim" class="animate-on-scroll delay-1 group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
+          <img src="https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Baharat" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
+          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+            <h3 class="font-display text-xl font-bold text-earth-100">Baharat</h3>
+            <p class="font-body text-xs text-earth-300/80 mt-1">Pul biber, karabiber</p>
+          </div>
+        </a>
+
+        <a href="#iletisim" class="animate-on-scroll delay-2 group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
+          <img src="https://images.pexels.com/photos/18551846/pexels-photo-18551846.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Konserve" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
+          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+            <h3 class="font-display text-xl font-bold text-earth-100">Konserve</h3>
+            <p class="font-body text-xs text-earth-300/80 mt-1">Salça, sebze, soslar</p>
+          </div>
+        </a>
+
+        <a href="#iletisim" class="animate-on-scroll group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
+          <img src="https://images.pexels.com/photos/1022385/pexels-photo-1022385.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Bitkisel Yağlar" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
+          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+            <h3 class="font-display text-xl font-bold text-earth-100">Bitkisel Yağlar</h3>
+            <p class="font-body text-xs text-earth-300/80 mt-1">Zeytinyağı, ayçiçek</p>
+          </div>
+        </a>
+
+        <a href="#iletisim" class="animate-on-scroll delay-1 group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
+          <img src="https://images.pexels.com/photos/18543435/pexels-photo-18543435.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Kahvaltılık" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
+          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+            <h3 class="font-display text-xl font-bold text-earth-100">Kahvaltılık</h3>
+            <p class="font-body text-xs text-earth-300/80 mt-1">Bal, pekmez, peynir</p>
+          </div>
+        </a>
+
       </div>
+
     </div>
   </section>
 
