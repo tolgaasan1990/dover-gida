@@ -52,3 +52,60 @@
 - Do not stop after one screenshot pass
 - Do not use `transition-all`
 - Do not use default Tailwind blue/indigo as primary color
+
+---
+
+## Proje Bilgileri — Döver Gıda
+
+### Şirket
+- **İsim:** Döver Gıda
+- **Sektör:** Toptan gıda tedarikçisi
+- **Lokasyon:** Hürriyet, Namık Kemal Cd. N.54, 35400 Buca / İzmir
+- **Telefon:** 0545 479 22 19
+- **Hizmet bölgesi:** İzmir merkez ve yakın il-ilçeler
+- **Öne çıkan ürünler:** Zeytin, Turşu, Piknik Grubu (reçel, peynir, hazır paketler)
+- **Diğer ürünler:** Bakliyat, Baharat, Konserve, Bitkisel Yağlar, Kahvaltılık
+- **Instagram:** @dovergida
+
+### Hosting & Domain
+- **Hosting:** Netlify (ücretsiz plan) — otomatik deploy, GitHub'a push = canlı güncelleme
+- **GitHub repo:** https://github.com/tolgaasan1990/dover-gida
+- **Branch:** main
+- **Ana domain:** dovergida.com.tr (primary)
+- **www:** www.dovergida.com.tr → otomatik yönlendirir
+- **Türkçe domain:** dövergıda.com.tr (xn--dvergda-90a94c.com.tr) → domain alias
+- **Netlify subdomain:** dovergida.netlify.app
+- **SSL:** Let's Encrypt, otomatik yenileme
+- **DNS sağlayıcı:** e-destek.com
+- **DNS kayıtları:** A: 75.2.60.5, CNAME www: dovergida.netlify.app
+
+### SEO & Google
+- **Google Search Console:** Doğrulanmış (HTML dosyası yöntemi — google7fedac7f417527c2.html)
+- **Sitemap:** /sitemap.xml (gönderildi, başarılı)
+- **robots.txt:** mevcut
+- **Meta tag'ler:** description, keywords, Open Graph, Twitter Card ekli
+- **Canonical URL:** https://dovergida.com.tr/
+
+### Teknik Yapı
+- **Tek dosya:** index.html (tüm HTML, CSS, JS inline)
+- **CSS:** Tailwind CSS CDN
+- **Fontlar:** Playfair Display (display/serif) + DM Sans (body/sans)
+- **Renk paleti:** forest (yeşil tonları), brand (amber/altın tonları), earth (toprak tonları), dark (koyu arka plan)
+- **Logo:** brand_assets/logo.png (demirci figürü, kırmızı çekiçli)
+- **Ürün görselleri:** brand_assets/piknik.png, brand_assets/bakliyat.png + Pexels stok görseller
+- **Favicon:** brand_assets/logo.png
+
+### Site Bölümleri (mevcut sıra)
+1. Navbar (logo + menü + İletişim butonu)
+2. Hero (merkezi, "Döver Gıda / Toptan Tedarik" + CTA butonları + bilgi şeridi)
+3. Marquee (kayan ürün kategorileri — Zeytin, Turşu, Piknik Grubu öne çıkan)
+4. Hakkımızda (dekoratif panel + açıklama + İzmir/Bölgesel Teslimat/Kalite ikonları)
+5. Ürünler — Geniş Ürün Yelpazesi (8 kart: gradient arka plan + Pexels görseller)
+6. Hizmetler — Uçtan Uca Tedarik Çözümleri (4 kart)
+7. İletişim — Bize Ulaşın (3 tıklanabilir kart: adres→Google Maps, telefon→tel:, e-posta→mailto:)
+8. Footer (logo, hızlı bağlantılar, çalışma saatleri, sosyal medya)
+
+### Yapılması Gerekenler
+- Google My Business'a web sitesi ekle (dovergida.com.tr)
+- Diğer ürünler için gerçek fotoğraflar ekle (şu an Pexels stok kullanılıyor)
+- Google indexleme bekleniyor (3-7 gün)
