@@ -267,16 +267,20 @@
       </div>
     </div>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="menuOverlay" class="fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden" style="z-index: 40;"></div>
+
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 bg-dark-900/98 border-l border-earth-800/30 p-8 pt-24 md:hidden">
+    <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 border-l border-earth-800/30 p-8 pt-24 md:hidden" style="background: #1a1714; z-index: 50;">
       <div class="flex flex-col gap-6">
         <a href="#hakkimizda" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Hakkımızda</a>
         <a href="#urunler" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Ürünler</a>
         <a href="#hizmetler" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Hizmetler</a>
-        <a href="#neden-biz" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Neden Biz</a>
+        <a href="#iletisim" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">İletişim</a>
         <div class="gold-line my-2"></div>
-        <a href="#iletisim" class="btn-shine inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-forest-600 to-forest-700 text-earth-100 font-semibold rounded-lg">
-          İletişim
+        <a href="tel:+905454792219" class="btn-shine inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-forest-600 to-forest-700 text-earth-100 font-semibold rounded-lg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Hemen Ara
         </a>
       </div>
     </div>
@@ -288,24 +292,24 @@
     <div class="absolute top-20 right-10 w-96 h-96 rounded-full bg-forest-500/5 blur-3xl"></div>
     <div class="absolute bottom-20 left-10 w-80 h-80 rounded-full bg-brand-500/5 blur-3xl"></div>
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20 w-full">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-16 sm:pb-20 w-full">
       <div class="max-w-3xl mx-auto text-center">
 
-<h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-800 leading-[0.95] tracking-[-0.03em] text-earth-100 mb-8" style="animation: fadeInUp 0.8s 0.15s cubic-bezier(0.16,1,0.3,1) both;">
+<h1 class="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-800 leading-[0.95] tracking-[-0.03em] text-earth-100 mb-6 sm:mb-8" style="animation: fadeInUp 0.8s 0.15s cubic-bezier(0.16,1,0.3,1) both;">
           Döver Gıda<br>
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-forest-400 via-forest-300 to-brand-400">Toptan Tedarik</span>
         </h1>
 
-        <p class="font-body text-lg md:text-xl text-earth-300 leading-relaxed max-w-2xl mx-auto mb-12" style="animation: fadeInUp 0.8s 0.3s cubic-bezier(0.16,1,0.3,1) both; line-height: 1.7;">
+        <p class="font-body text-base sm:text-lg md:text-xl text-earth-300 leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-12 px-2 sm:px-0" style="animation: fadeInUp 0.8s 0.3s cubic-bezier(0.16,1,0.3,1) both; line-height: 1.7;">
           Restoranlardan marketlere, otellerden catering firmalarına kadar geniş bir yelpazede toptan gıda tedariki sağlıyoruz. Kalite ve güveni bir arada sunuyoruz.
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center" style="animation: fadeInUp 0.8s 0.45s cubic-bezier(0.16,1,0.3,1) both;">
-          <a href="#urunler" class="btn-shine inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-forest-500 to-forest-600 text-earth-50 font-semibold rounded-xl shadow-xl shadow-forest-600/25 hover:shadow-forest-500/40 hover:from-forest-400 hover:to-forest-500 active:scale-[0.97] transition-all duration-300 text-base">
+          <a href="#urunler" class="btn-shine inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-forest-500 to-forest-600 text-earth-50 font-semibold rounded-xl shadow-xl shadow-forest-600/25 hover:shadow-forest-500/40 hover:from-forest-400 hover:to-forest-500 active:scale-[0.97] transition-all duration-300 text-sm sm:text-base w-full sm:w-auto">
             Ürünlerimizi Keşfedin
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#iletisim" class="inline-flex items-center gap-3 px-8 py-4 border border-earth-700/50 text-earth-200 font-semibold rounded-xl hover:border-brand-500/50 hover:text-brand-300 hover:bg-brand-500/5 active:scale-[0.97] transition-all duration-300 text-base">
+          <a href="#iletisim" class="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 border border-earth-700/50 text-earth-200 font-semibold rounded-xl hover:border-brand-500/50 hover:text-brand-300 hover:bg-brand-500/5 active:scale-[0.97] transition-all duration-300 text-sm sm:text-base w-full sm:w-auto">
             Teklif Alın
           </a>
         </div>
@@ -376,7 +380,7 @@
   </div>
 
   <!-- ABOUT SECTION -->
-  <section id="hakkimizda" class="py-28 relative">
+  <section id="hakkimizda" class="py-16 sm:py-28 relative">
     <div class="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800/50 to-dark-900"></div>
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -404,7 +408,7 @@
         <div>
           <div class="animate-on-scroll">
             <span class="font-body text-sm font-semibold text-brand-400 tracking-widest uppercase">Hakkımızda</span>
-            <h2 class="font-display text-4xl md:text-5xl font-bold text-earth-100 mt-3 mb-6 tracking-[-0.02em] leading-tight">
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-earth-100 mt-3 mb-6 tracking-[-0.02em] leading-tight">
               İzmir'in Güvenilir<br><span class="text-forest-400">Gıda Tedarikçisi</span>
             </h2>
           </div>
@@ -444,7 +448,7 @@
   </section>
 
   <!-- PRODUCTS SECTION -->
-  <section id="urunler" class="py-28 relative overflow-hidden">
+  <section id="urunler" class="py-16 sm:py-28 relative overflow-hidden">
     <div class="absolute inset-0">
       <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-earth-800/30 to-transparent"></div>
       <div class="absolute top-1/3 left-0 w-96 h-96 bg-forest-500/4 rounded-full blur-3xl"></div>
@@ -453,20 +457,20 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
 
       <!-- Section header -->
-      <div class="text-center mb-20">
+      <div class="text-center mb-12 sm:mb-20">
         <span class="animate-on-scroll font-body text-sm font-semibold text-brand-400 tracking-widest uppercase block">Ürünlerimiz</span>
-        <h2 class="animate-on-scroll delay-1 font-display text-4xl md:text-5xl font-bold text-earth-100 mt-3 tracking-[-0.02em]">
+        <h2 class="animate-on-scroll delay-1 font-display text-3xl sm:text-4xl md:text-5xl font-bold text-earth-100 mt-3 tracking-[-0.02em]">
           Geniş Ürün <span class="text-forest-400">Yelpazesi</span>
         </h2>
       </div>
 
       <!-- Product Grid: all equal, with background images -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5">
 
         <a href="#iletisim" class="animate-on-scroll group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
           <img src="https://images.pexels.com/photos/4109912/pexels-photo-4109912.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Zeytin" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
-          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+          <div class="relative p-6 md:p-7 min-h-[180px] sm:min-h-[200px] flex flex-col justify-end">
             <h3 class="font-display text-xl font-bold text-earth-100">Zeytin</h3>
             <p class="font-body text-xs text-earth-300/80 mt-1">Yeşil, siyah, kırma</p>
           </div>
@@ -475,7 +479,7 @@
         <a href="#iletisim" class="animate-on-scroll delay-1 group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
           <img src="https://images.pexels.com/photos/28645472/pexels-photo-28645472.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Turşu" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
-          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+          <div class="relative p-6 md:p-7 min-h-[180px] sm:min-h-[200px] flex flex-col justify-end">
             <h3 class="font-display text-xl font-bold text-earth-100">Turşu</h3>
             <p class="font-body text-xs text-earth-300/80 mt-1">Geleneksel çeşitler</p>
           </div>
@@ -484,7 +488,7 @@
         <a href="#iletisim" class="animate-on-scroll delay-2 group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
           <img src="brand_assets/piknik.png" alt="Piknik Grubu" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
-          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+          <div class="relative p-6 md:p-7 min-h-[180px] sm:min-h-[200px] flex flex-col justify-end">
             <h3 class="font-display text-xl font-bold text-earth-100">Piknik Grubu</h3>
             <p class="font-body text-xs text-earth-300/80 mt-1">Reçel, peynir, paketler</p>
           </div>
@@ -493,7 +497,7 @@
         <a href="#iletisim" class="animate-on-scroll group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
           <img src="brand_assets/bakliyat.png" alt="Bakliyat" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
-          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+          <div class="relative p-6 md:p-7 min-h-[180px] sm:min-h-[200px] flex flex-col justify-end">
             <h3 class="font-display text-xl font-bold text-earth-100">Bakliyat</h3>
             <p class="font-body text-xs text-earth-300/80 mt-1">Mercimek, nohut, fasulye</p>
           </div>
@@ -502,7 +506,7 @@
         <a href="#iletisim" class="animate-on-scroll delay-1 group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
           <img src="https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Baharat" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
-          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+          <div class="relative p-6 md:p-7 min-h-[180px] sm:min-h-[200px] flex flex-col justify-end">
             <h3 class="font-display text-xl font-bold text-earth-100">Baharat</h3>
             <p class="font-body text-xs text-earth-300/80 mt-1">Pul biber, karabiber</p>
           </div>
@@ -511,7 +515,7 @@
         <a href="#iletisim" class="animate-on-scroll delay-2 group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
           <img src="https://images.pexels.com/photos/18551846/pexels-photo-18551846.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Konserve" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
-          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+          <div class="relative p-6 md:p-7 min-h-[180px] sm:min-h-[200px] flex flex-col justify-end">
             <h3 class="font-display text-xl font-bold text-earth-100">Konserve</h3>
             <p class="font-body text-xs text-earth-300/80 mt-1">Salça, sebze, soslar</p>
           </div>
@@ -520,7 +524,7 @@
         <a href="#iletisim" class="animate-on-scroll group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
           <img src="https://images.pexels.com/photos/1022385/pexels-photo-1022385.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Bitkisel Yağlar" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
-          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+          <div class="relative p-6 md:p-7 min-h-[180px] sm:min-h-[200px] flex flex-col justify-end">
             <h3 class="font-display text-xl font-bold text-earth-100">Bitkisel Yağlar</h3>
             <p class="font-body text-xs text-earth-300/80 mt-1">Zeytinyağı, ayçiçek</p>
           </div>
@@ -529,7 +533,7 @@
         <a href="#iletisim" class="animate-on-scroll delay-1 group relative rounded-2xl overflow-hidden cursor-pointer block transition-transform duration-500 hover:scale-[1.03]">
           <img src="https://images.pexels.com/photos/18543435/pexels-photo-18543435.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Kahvaltılık" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-dark-900/10"></div>
-          <div class="relative p-6 md:p-7 min-h-[200px] flex flex-col justify-end">
+          <div class="relative p-6 md:p-7 min-h-[180px] sm:min-h-[200px] flex flex-col justify-end">
             <h3 class="font-display text-xl font-bold text-earth-100">Kahvaltılık</h3>
             <p class="font-body text-xs text-earth-300/80 mt-1">Bal, pekmez, peynir</p>
           </div>
@@ -541,82 +545,82 @@
   </section>
 
   <!-- SERVICES SECTION -->
-  <section id="hizmetler" class="py-28 relative overflow-hidden">
+  <section id="hizmetler" class="py-16 sm:py-28 relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800/30 to-dark-900"></div>
     <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-earth-800/30 to-transparent"></div>
     <div class="absolute top-1/3 right-0 w-80 h-80 bg-brand-500/4 rounded-full blur-3xl"></div>
 
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
-      <div class="text-center mb-16">
+      <div class="text-center mb-10 sm:mb-16">
         <span class="animate-on-scroll font-body text-sm font-semibold text-brand-400 tracking-widest uppercase block">Hizmetlerimiz</span>
-        <h2 class="animate-on-scroll delay-1 font-display text-4xl md:text-5xl font-bold text-earth-100 mt-3 tracking-[-0.02em]">
+        <h2 class="animate-on-scroll delay-1 font-display text-3xl sm:text-4xl md:text-5xl font-bold text-earth-100 mt-3 tracking-[-0.02em]">
           Uçtan Uca <span class="text-forest-400">Tedarik Çözümleri</span>
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         <!-- Service 1 -->
-        <div class="animate-on-scroll group p-8 rounded-2xl bg-dark-800/70 border border-earth-800/30 hover:border-forest-700/40 hover:bg-dark-800/80 transition-all duration-500">
-          <div class="w-14 h-14 rounded-xl bg-forest-600/15 flex items-center justify-center mb-6 group-hover:bg-forest-600/25 transition-colors duration-300">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <div class="animate-on-scroll group p-5 sm:p-8 rounded-2xl bg-dark-800/70 border border-earth-800/30 hover:border-forest-700/40 hover:bg-dark-800/80 transition-all duration-500">
+          <div class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl bg-forest-600/15 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-forest-600/25 transition-colors duration-300">
+            <svg class="w-5 h-5 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <rect x="1" y="3" width="15" height="13" rx="2"/>
               <path d="M16 8h4l3 3v5a1 1 0 01-1 1h-2"/>
               <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
             </svg>
           </div>
-          <h3 class="font-display text-xl font-bold text-earth-100 mb-3">Hızlı Teslimat</h3>
-          <p class="font-body text-sm text-earth-400 leading-relaxed">İzmir ve yakın il-ilçelere aynı gün veya ertesi gün teslimat. Güvenli ve düzenli taşıma.</p>
+          <h3 class="font-display text-base sm:text-xl font-bold text-earth-100 mb-2 sm:mb-3">Hızlı Teslimat</h3>
+          <p class="font-body text-xs sm:text-sm text-earth-400 leading-relaxed">İzmir ve yakın il-ilçelere aynı gün veya ertesi gün teslimat. Güvenli ve düzenli taşıma.</p>
         </div>
 
         <!-- Service 2 -->
-        <div class="animate-on-scroll delay-1 group p-8 rounded-2xl bg-dark-800/40 border border-earth-800/20 hover:border-brand-700/40 hover:bg-dark-800/60 transition-all duration-500">
-          <div class="w-14 h-14 rounded-xl bg-brand-600/15 flex items-center justify-center mb-6 group-hover:bg-brand-600/25 transition-colors duration-300">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4802a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <div class="animate-on-scroll delay-1 group p-5 sm:p-8 rounded-2xl bg-dark-800/40 border border-earth-800/20 hover:border-brand-700/40 hover:bg-dark-800/60 transition-all duration-500">
+          <div class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl bg-brand-600/15 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-brand-600/25 transition-colors duration-300">
+            <svg class="w-5 h-5 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="#d4802a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               <path d="M9 12l2 2 4-4"/>
             </svg>
           </div>
-          <h3 class="font-display text-xl font-bold text-earth-100 mb-3">Kalite Güvencesi</h3>
-          <p class="font-body text-sm text-earth-400 leading-relaxed">ISO 22000 sertifikalı süreçlerimizle gıda güvenliği standartlarına %100 uyum sağlıyoruz.</p>
+          <h3 class="font-display text-base sm:text-xl font-bold text-earth-100 mb-2 sm:mb-3">Kalite Güvencesi</h3>
+          <p class="font-body text-xs sm:text-sm text-earth-400 leading-relaxed">ISO 22000 sertifikalı süreçlerimizle gıda güvenliği standartlarına %100 uyum sağlıyoruz.</p>
         </div>
 
         <!-- Service 3 -->
-        <div class="animate-on-scroll delay-2 group p-8 rounded-2xl bg-dark-800/70 border border-earth-800/30 hover:border-forest-700/40 hover:bg-dark-800/80 transition-all duration-500">
-          <div class="w-14 h-14 rounded-xl bg-forest-600/15 flex items-center justify-center mb-6 group-hover:bg-forest-600/25 transition-colors duration-300">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <div class="animate-on-scroll delay-2 group p-5 sm:p-8 rounded-2xl bg-dark-800/70 border border-earth-800/30 hover:border-forest-700/40 hover:bg-dark-800/80 transition-all duration-500">
+          <div class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl bg-forest-600/15 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-forest-600/25 transition-colors duration-300">
+            <svg class="w-5 h-5 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 7h-9"/><path d="M14 17H5"/>
               <circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/>
             </svg>
           </div>
-          <h3 class="font-display text-xl font-bold text-earth-100 mb-3">Özel Fiyatlandırma</h3>
-          <p class="font-body text-sm text-earth-400 leading-relaxed">Hacminize göre esnek fiyat politikası. Düzenli müşterilerimize özel indirim ve vadeli ödeme.</p>
+          <h3 class="font-display text-base sm:text-xl font-bold text-earth-100 mb-2 sm:mb-3">Özel Fiyatlandırma</h3>
+          <p class="font-body text-xs sm:text-sm text-earth-400 leading-relaxed">Hacminize göre esnek fiyat politikası. Düzenli müşterilerimize özel indirim ve vadeli ödeme.</p>
         </div>
 
         <!-- Service 4 -->
-        <div class="animate-on-scroll delay-3 group p-8 rounded-2xl bg-dark-800/40 border border-earth-800/20 hover:border-brand-700/40 hover:bg-dark-800/60 transition-all duration-500">
-          <div class="w-14 h-14 rounded-xl bg-brand-600/15 flex items-center justify-center mb-6 group-hover:bg-brand-600/25 transition-colors duration-300">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4802a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <div class="animate-on-scroll delay-3 group p-5 sm:p-8 rounded-2xl bg-dark-800/40 border border-earth-800/20 hover:border-brand-700/40 hover:bg-dark-800/60 transition-all duration-500">
+          <div class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl bg-brand-600/15 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-brand-600/25 transition-colors duration-300">
+            <svg class="w-5 h-5 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="#d4802a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
               <circle cx="9" cy="7" r="4"/>
               <path d="M23 21v-2a4 4 0 00-3-3.87"/>
               <path d="M16 3.13a4 4 0 010 7.75"/>
             </svg>
           </div>
-          <h3 class="font-display text-xl font-bold text-earth-100 mb-3">Müşteri Danışmanlığı</h3>
-          <p class="font-body text-sm text-earth-400 leading-relaxed">Uzman ekibimiz sizi dinler, ihtiyacınıza uygun ürün ve çözüm önerilerini sunar.</p>
+          <h3 class="font-display text-base sm:text-xl font-bold text-earth-100 mb-2 sm:mb-3">Müşteri Danışmanlığı</h3>
+          <p class="font-body text-xs sm:text-sm text-earth-400 leading-relaxed">Uzman ekibimiz sizi dinler, ihtiyacınıza uygun ürün ve çözüm önerilerini sunar.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT SECTION -->
-  <section id="iletisim" class="py-28 relative">
+  <section id="iletisim" class="py-16 sm:py-28 relative">
     <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-earth-800/30 to-transparent"></div>
 
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-10 sm:mb-16">
         <span class="animate-on-scroll font-body text-sm font-semibold text-brand-400 tracking-widest uppercase block">İletişim</span>
-        <h2 class="animate-on-scroll delay-1 font-display text-4xl md:text-5xl font-bold text-earth-100 mt-3 tracking-[-0.02em]">
+        <h2 class="animate-on-scroll delay-1 font-display text-3xl sm:text-4xl md:text-5xl font-bold text-earth-100 mt-3 tracking-[-0.02em]">
           Bize <span class="text-forest-400">Ulaşın</span>
         </h2>
       </div>
@@ -645,14 +649,14 @@
         </a>
 
         <!-- Email -->
-        <a href="mailto:info@dovergida.com" class="animate-on-scroll delay-2 text-center p-8 rounded-2xl bg-dark-800/40 border border-earth-800/20 hover:border-forest-700/30 transition-all duration-500 block active:scale-[0.97]">
+        <a href="mailto:dovergida@hotmail.com" class="animate-on-scroll delay-2 text-center p-8 rounded-2xl bg-dark-800/40 border border-earth-800/20 hover:border-forest-700/30 transition-all duration-500 block active:scale-[0.97]">
           <div class="w-14 h-14 rounded-xl bg-forest-600/15 flex items-center justify-center mx-auto mb-5">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5ea56a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/>
             </svg>
           </div>
           <h3 class="font-display text-xl font-bold text-earth-100 mb-2">E-posta</h3>
-          <p class="font-body text-sm text-earth-400 leading-relaxed">info@dovergida.com</p>
+          <p class="font-body text-sm text-earth-400 leading-relaxed">dovergida@hotmail.com</p>
         </a>
       </div>
     </div>
@@ -745,16 +749,28 @@
     // Mobile menu
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.addEventListener('click', () => {
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function toggleMenu() {
       menuBtn.classList.toggle('active');
       mobileMenu.classList.toggle('open');
-    });
+      const isOpen = mobileMenu.classList.contains('open');
+      menuOverlay.style.opacity = isOpen ? '1' : '0';
+      menuOverlay.style.pointerEvents = isOpen ? 'auto' : 'none';
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    menuOverlay.addEventListener('click', toggleMenu);
 
     // Close mobile menu on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         menuBtn.classList.remove('active');
         mobileMenu.classList.remove('open');
+        menuOverlay.style.opacity = '0';
+        menuOverlay.style.pointerEvents = 'none';
+        document.body.style.overflow = '';
       });
     });
 
