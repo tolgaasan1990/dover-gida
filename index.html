@@ -267,24 +267,25 @@
       </div>
     </div>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="menuOverlay" class="fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden" style="z-index: 40;"></div>
-
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 border-l border-earth-800/30 p-8 pt-24 md:hidden" style="background: #1a1714; z-index: 50;">
-      <div class="flex flex-col gap-6">
-        <a href="#hakkimizda" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Hakkımızda</a>
-        <a href="#urunler" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Ürünler</a>
-        <a href="#hizmetler" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Hizmetler</a>
-        <a href="#iletisim" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">İletişim</a>
-        <div class="gold-line my-2"></div>
-        <a href="tel:+905454792219" class="btn-shine inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-forest-600 to-forest-700 text-earth-100 font-semibold rounded-lg">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          Hemen Ara
-        </a>
-      </div>
-    </div>
   </nav>
+
+  <!-- Mobile Menu Overlay (nav dışında, yüksek z-index) -->
+  <div id="menuOverlay" class="fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden" style="z-index: 9997;"></div>
+
+  <!-- Mobile Menu (nav dışında, yüksek z-index) -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 border-l border-earth-800/30 p-8 pt-24 md:hidden" style="background: #1a1714; z-index: 9998;">
+    <div class="flex flex-col gap-6">
+      <a href="#hakkimizda" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Hakkımızda</a>
+      <a href="#urunler" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Ürünler</a>
+      <a href="#hizmetler" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">Hizmetler</a>
+      <a href="#iletisim" class="font-body text-lg font-medium text-earth-200 hover:text-brand-400 transition-colors duration-300">İletişim</a>
+      <div class="gold-line my-2"></div>
+      <a href="tel:+905454792219" class="btn-shine inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-forest-600 to-forest-700 text-earth-100 font-semibold rounded-lg">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Hemen Ara
+      </a>
+    </div>
+  </div>
 
   <!-- HERO SECTION -->
   <section class="relative min-h-screen flex items-center hero-bg overflow-hidden">
